@@ -12,10 +12,10 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v2 # reusing actions code in checkout@v2
 
-    - name: Set up JDK 1.8
-      uses: actions/setup-java@v1
+    - name: Set up JDK 1.8 # preparing my environment with the java version I want
+      uses: actions/setup-java@v1 
       with:
         java-version: 1.8
 
@@ -25,11 +25,11 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build
 
-    - name: Build and Push Docker Image
-      uses: mr-smithers-excellent/docker-build-push@v4
-      with:
-        image: cyebukayire/java-ci-gradle
-        registry: docker.io
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_PASSWORD }}
+#     - name: Build and Push Docker Image
+#       uses: mr-smithers-excellent/docker-build-push@v4
+#       with:
+#         image: cyebukayire/java-ci-gradle
+#         registry: docker.io
+#         username: ${{ secrets.DOCKER_USERNAME }}
+#         password: ${{ secrets.DOCKER_PASSWORD }}
          
